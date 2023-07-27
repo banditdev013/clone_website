@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* รีเซ็ตค่าจุดของแท็ก li */
+    list-style: none;
+    /* รีเซ็ตเส้นใต้ของแท็ก a */
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav {
+    padding: 20px;
+    border: 1px solid red;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav img{
+    width: 40px;
+    height: 50px;  
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    /* border: 1px solid red; */
+    padding: 10px 30px;
+}
+
+nav ul li a {
+    font-size: 18px;
+    color: black;
+}
+
+header {
+    border: 1px solid blue;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1675326171126-bee0d33d9198?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header .container {
+    /* border: 1px solid red; */
+    width: 700px;
+    padding: 40px 60px;
+    text-align: center;
+    background-color: rgba(240, 240, 240, 0.4);
+}
+
+header h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+header p {
+    color: #202020;
+    margin-bottom: 12px;
+}
+
+header button {
+    background-color: black;
+    color: white;
+    padding: 14px 60px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    transition: .3s;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/********* Section - 1 **********/
+
+.sec1 {
+    /* border: 1px solid red; */
+    padding: 40px 20px;
+}
+
+.sec1 .row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.sec1 .col {
+    /* border: 1px solid blue; */
+    /* กำหนดให้ลูกๆใน .col เป็นแบบ flex (เรียงในแนวแกน x) 
+        flex-direction: column; คือปรับให้ลูกๆใน .col เรียงในแนวแกน y 
+        align-items: center; คือเรียงลูกๆใน .col ให้อยู่ตรงกลาง ในแนวแกน x */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec1 .col .img-container {
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid green; */
+    margin-bottom: 14px;
+}
+
+.sec1 .col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sec1 .col h3 {
+    text-align: center;
+}
+
+/********* Section - 2 **********/
+
+.sec2 {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.sec2 h3 {
+    padding: 0 8%;
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.sec2 .gallery .row {
+    /* จัด layout แบบ grid */
+    display: grid;
+    /* กำหนดคอลัมน์ จำนวน 4 คอลัมน์ ด้วยขนาด 1 เฟรม  */
+    /* 1fr คือมันจะคำนวณอัตโนมัติจากขนาดหน้าจอปัจจุบัน
+    ให้แต่ละคอลัมน์มีขนาดเท่า ๆ กันทุกคอลัมน์ */
+    grid-template-columns: repeat(4, 1fr);
+    /* กำหนดระยะห่างระหว่าง column ของ grid ขนาด 20px ทั้งแนว column และแนว row */
+    gap: 20px;
+}
+
+.sec2 .gallery .col img{
+    width: 100%;
+    height: 100%;
+}
+
+.sec2 .buttons {
+    margin: 40px 0;
+}
+
+/* class .btn คือ เราจะกำหนดให้ปุ่มทุกปุ่ม มีคุณสมบัติเหมือนกัน
+เช่น สี ขนาดของปุ่ม ขนาดฟ้อนต์ */
+.sec2 .buttons .btn {
+    padding: 14px 40px;
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn.btn-black {
+    background-color: #333;
+    color: white;  
+}
+
+.btn.btn-white {
+    background-color: #fff;
+    color: #333;
+}
+
+.btn.btn-white:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* ถ้าขนาดหน้าจอต่ำกว่า 650px ลงไป (0-649) จะให้ทำอะไร... */
+@media only screen and (max-width: 650px) {
+    /* ปรับคอลัมน์ที่ .sec2 ให้เหลือแค่ 2 คอลัมน์ */
+    .sec2 .gallery .row {  
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ถ้าขนาดหน้าจอต่ำกว่า 600px ลงไป (0-599) จะให้ทำอะไร... */
+@media only screen and (max-width: 600px) {
+    /* ปรับคอลัมน์ที่ .sec1 ให้เหลือแค่ 2 คอลัมน์ */
+    .sec1 .row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
