@@ -396,11 +396,6 @@ footer .footer-items {
         font-size: 1.8rem;
     }
 
-    .section-content span {
-        font-family: var(--font-herr-von);
-        font-size: 3rem;
-    }
-
     .preview-products {
         grid-template-columns: 100%;
         grid-template-rows: repeat(8, 300px);
